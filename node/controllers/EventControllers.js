@@ -23,10 +23,10 @@ export const getEvent = async (req, res) => {
   try {
     const evento = await Evento.findAll({
       where: {
-        id: req.params.id
+        evento_id: req.params.id
       }
     })
-    res.json(evento)
+    res.json(evento[0])
   } catch (error) {
     res.json({ message: error.message })
   }
