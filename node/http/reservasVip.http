@@ -1,0 +1,2 @@
+### obtener todas las reservas vip existentes
+GET http://localhost:8000/reservasVip/

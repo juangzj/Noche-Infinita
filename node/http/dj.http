@@ -2,7 +2,7 @@
 GET http://localhost:8000/dj/
 
 ### obtener un dj segun su id
-GET http://localhost:8000/dj/5
+GET http://localhost:8000/dj/1
 
 ### creacion de un nuevo dj
 POST http://localhost:8000/dj/
@@ -11,7 +11,7 @@ Content-Type: application/json
 {
 "nombre_dj": "DJ Juan",
   "pais_origen": "Pasto",
-  "genero_musical": "De todo papa",
+  "genero_musical": "De todo papá",
   "numero_eventos": 100,
   "honorarios": 1000.0000,
   "estado": "activo",

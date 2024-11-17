@@ -3,10 +3,15 @@ import express from 'express';
 import cors from 'cors';
 // Importamos las rutas para Evento
 import eventRoutes from './routes/routes.js';
-//Impoirtamos las rutas para dj
+//Importamos las rutas para dj
 import djRoutes from './routes/djRoutes.js'
+//Importamos las rutas para reservas vip
+import reservasVipRoutes from './routes/reservasVipRoutes.js';
+//Importamso las rutas para ventas de bebidas 
+import ventasBebidasRoutes from './routes/ventasBebidasRoutes.js'
 //importamos la conexion a la base de datos
 import db from './database/bds.js';
+
 
 const app = express();
 
@@ -21,6 +26,13 @@ app.use('/events', eventRoutes);
 
 //configuramos las rutas para Djs
 app.use('/dj', djRoutes)
+
+//Configuraos las rutas para ventas de bebidas
+app.use('/ventasBebidas', ventasBebidasRoutes)
+
+
+//configuramos las rutas para reservas vip
+app.use('/reservasVip', reservasVipRoutes)
 
 // Para la conexión a la base de datos en mysql
 try {

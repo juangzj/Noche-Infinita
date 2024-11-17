@@ -2,7 +2,7 @@
 GET http://localhost:8000/events/
 
 ### Obtener un evento segun el id
-GET http://localhost:8000/events/5
+GET http://localhost:8000/events/1
 
 ### creacion de un nuevo evento
 POST http://localhost:8000/events/
