@@ -69,7 +69,9 @@ export const editEvent = async (req, res) => {
 export const deleteEvent = async (req, res) => {
   try {
     await Evento.destroy({
-      where: { id: req.params.id }
+      where: {
+        evento_id: req.params.id
+      }
     })
     res.json({
       "message": "Evento ELIMINADO correctamente"

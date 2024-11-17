@@ -3,3 +3,23 @@ GET http://localhost:8000/events/
 
 ### Obtener un evento segun el id
 GET http://localhost:8000/events/5
+
+### creacion de un nuevo evento
+POST http://localhost:8000/events/
+Content-Type: application/json
+
+{
+  "nombre_evento": "Concierto en Vivo",
+  "fecha": "2024-11-25",
+  "hora_inicio": "20:00:00",
+  "hora_fin": "23:00:00",
+  "dj_id": 1,
+  "capacidad_maxima": 500,
+  "descripcion": "Evento de música electrónica con DJ invitados.",
+  "costo_entrada": 25.00,
+  "estado": "programado"
+
+}
+
+### Eliminar un evento
+DELETE  http://localhost:8000/events/5

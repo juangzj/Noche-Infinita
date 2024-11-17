@@ -3,6 +3,8 @@ import express from 'express';
 import cors from 'cors';
 // Importamos las rutas para Evento
 import eventRoutes from './routes/routes.js';
+//Impoirtamos las rutas para dj
+import djRoutes from './routes/djRoutes.js'
 //importamos la conexion a la base de datos
 import db from './database/bds.js';
 
@@ -13,8 +15,12 @@ const app = express();
 app.use(cors());
 // Usamos json
 app.use(express.json());
-// Configuramos para las rutas
+
+// Configuramos para las rutas para eventos
 app.use('/events', eventRoutes);
+
+//configuramos las rutas para Djs
+app.use('/dj', djRoutes)
 
 // Para la conexión a la base de datos en mysql
 try {

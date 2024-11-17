@@ -1,0 +1,24 @@
+### Obtener todos los djs existentes
+GET http://localhost:8000/dj/
+
+### obtener un dj segun su id
+GET http://localhost:8000/dj/5
+
+### creacion de un nuevo dj
+POST http://localhost:8000/dj/
+Content-Type: application/json
+
+{
+"nombre_dj": "DJ Juan",
+  "pais_origen": "Pasto",
+  "genero_musical": "De todo papa",
+  "numero_eventos": 100,
+  "honorarios": 1000.0000,
+  "estado": "activo",
+  "representante_contacto": "Juan Pérez",
+  "notas_adicionales": "DJ especializado en festivales",
+  "proximo_evento": "2024-12-15"
+}
+
+### Eliminar un dj
+DELETE  http://localhost:8000/dj/6

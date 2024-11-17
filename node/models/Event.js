@@ -19,7 +19,7 @@ const Evento = db.define('Eventos', {
   costo_entrada: { type: DataTypes.DECIMAL },
   estado: { type: DataTypes.ENUM('programado', 'en curso', 'finalizado') }
 }, {
-  timestamps: false  // Esto desactiva 'createdAt' y 'updatedAt'
+  timestamps: false
 });
 
 
