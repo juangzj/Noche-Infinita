@@ -12,7 +12,7 @@ import ventasBebidasRoutes from './routes/ventasBebidasRoutes.js'
 //importamos la conexion a la base de datos
 import db from './database/bds.js';
 
-
+//===========================================================================
 const app = express();
 
 
@@ -41,6 +41,8 @@ try {
 } catch (error) {
   console.log(`El error de conexión es: ${error}`);
 }
+//================================================================================================
+
 
 /**app.get('/', (req, res) => {
   res.send('Hola Mundo');
