@@ -15,6 +15,35 @@ export const getAllEvents = async (req, res) => {
   }
 };
 
+export const getEventNombreEstado = async (req, res) => {
+  try {
+    const { nombre_evento, estado } = req.query;
+
+    const filtro = {};
+
+    if (nombre_evento) {
+      filtro.nombre_evento = { [Op.like]: `%${nombre_evento}%` };
+    }
+
+    if (estado) {
+      filtro.estado = estado;
+    }
+
+    const eventos = await Evento.findAll({
+      where: filtro,
+    });
+
+    if (eventos.length === 0) {
+      return res.status(404).json({ message: 'No se encontraron eventos con los parámetros especificados.' });
+    }
+
+    res.json(eventos);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al obtener los eventos', error: error.message });
+  }
+};
+
+
 
 
 /**
