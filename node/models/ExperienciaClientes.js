@@ -15,7 +15,7 @@ const experienciaClienteSchema = new Schema(
     probabilidad_retorno: { type: String, enum: ["Baja", "Media", "Alta", "Muy alta"], required: true },
     recomendaciones_amigos: { type: Boolean, default: false },
   },
-  { collection: 'experiencia_clientes' } // Configuración adicional
+  { collection: 'experiencia_clientes' }
 );
 
 // Exportar el modelo

@@ -41,3 +41,36 @@ export const createExperienciaCliente = async (req, res) => {
   }
 
 }
+
+//metodo para editar un experiencia de usuario
+export const editExperienciaCLiente = async (req, res) => {
+  try {
+    const id = req.params.id
+    await ExperienciaClientes.updateOne({ _id: id }, req.body).then(res => {
+      console.log(res)
+    })
+    res.status(200).json({
+      "message": "EXperiencia de usuario EDITADA correctamente"
+    })
+  } catch (error) {
+    res.json({ message: error.message })
+  }
+
+}
+
+//metodo para eliminar una experiencia de usuario
+export const deleteExperienciaCliente = async (req, res) => {
+  try {
+    const id = req.params.id
+    await ExperienciaClientes.deleteOne({ _id: id }).then(res => {
+      console.log(res)
+
+    })
+    res.status(200).json({
+      "message": "EXperiencia de usuario ELIMINADA correctamente"
+    })
+  } catch (error) {
+    res.json({ message: error.message })
+  }
+
+}

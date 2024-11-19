@@ -4,6 +4,8 @@ import cors from 'cors'
 import dbm from './database/dbm.js';
 //Importamos el enrutador
 import experienciasClientesRoutes from './routes/experienciasClientesRoutes.js'
+//Importamos el enrutador para sistemaIluminancion
+import sistemaIluminancionRoutes from './routes/sistemaIluminancionRoutes.js'
 
 
 
@@ -17,8 +19,11 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-//rutas
+//rutas para experiencia clientes
 app.use('/experienciaCliente', experienciasClientesRoutes)
+//rutas para sistema iluminancion
+app.use('/sistemaIluminacion', sistemaIluminancionRoutes)
+
 
 try {
   await dbm.authenticate();

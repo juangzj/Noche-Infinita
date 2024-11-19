@@ -30,6 +30,33 @@ export const getReservaVip = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+/**
+ * Metodo para obtener una reserva segun el id o estado de la reservaVip
+ */
+export const getReservaVipIdEstado = async (req, res) => {
+  try {
+    const { id, estado } = req.query;
+    let whereCondition = {};
+    if (id) {
+      whereCondition.reserva_id = id;
+    }
+    if (estado) {
+      whereCondition.estado = estado;
+    }
+    const reservas = await ReservaVip.findAll({
+      where: whereCondition
+    });
+    if (reservas.length === 0) {
+      return res.status(404).json({ message: 'No se encontraron reservas VIP con los parámetros especificados.' });
+    }
+    res.json(reservas);
+  } catch (error) {
+
+    res.status(500).json({ message: 'Error al obtener las reservas VIP', error: error.message });
+  }
+};
+
+
 
 /**
  * Crear una nueva reserva VIP

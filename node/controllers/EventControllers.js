@@ -1,5 +1,5 @@
-//Importamos el modelo
 import Evento from "../models/Event.js";
+import { Op } from 'sequelize';
 
 /** Metodos para el CRUD */
 
@@ -7,14 +7,15 @@ import Evento from "../models/Event.js";
  * Motrar todos los eventos existentes
  */
 export const getAllEvents = async (req, res) => {
-
   try {
-    const events = await Evento.findAll()
-    res.json(events)
+    const events = await Evento.findAll();
+    res.json(events);
   } catch (error) {
-    res.json({ message: error.message })
+    res.json({ message: error.message });
   }
-}
+};
+
+
 
 /**
  * Metodo para obtener un evento segun el id
@@ -25,59 +26,55 @@ export const getEvent = async (req, res) => {
       where: {
         evento_id: req.params.id
       }
-    })
-    res.json(evento[0])
+    });
+    res.json(evento[0]);
   } catch (error) {
-    res.json({ message: error.message })
+    res.json({ message: error.message });
   }
-}
+};
 
 /**
  * Crear un nuevo evento
  */
-
 export const createEvent = async (req, res) => {
   try {
-    await Evento.create(req.body)
+    await Evento.create(req.body);
     res.json({
       "message": "Evento CREADO correctamente"
-    })
+    });
   } catch (error) {
-    res.json({ message: error.message })
+    res.json({ message: error.message });
   }
-}
+};
 
 /**
  * Metodo para editar un evento 
  */
-
 export const editEvent = async (req, res) => {
   try {
     await Evento.update(req.body, {
       where: { id: req.params.id }
-    })
+    });
     res.json({
       "message": "Evento EDITADO correctamente"
-    })
+    });
   } catch (error) {
-    res.json({ message: error.message })
+    res.json({ message: error.message });
   }
-}
+};
 
 /**Metodo para eliminar un evento */
-
 export const deleteEvent = async (req, res) => {
   try {
     await Evento.destroy({
       where: {
         evento_id: req.params.id
       }
-    })
+    });
     res.json({
       "message": "Evento ELIMINADO correctamente"
-    })
+    });
   } catch (error) {
-    res.json({ message: error.message })
+    res.json({ message: error.message });
   }
-
-}
+};
